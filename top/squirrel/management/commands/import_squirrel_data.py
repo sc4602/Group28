@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 import pandas as pd
-from sqlalchemy import create_engine, String, Float, Boolean, Date, Text
+from sqlalchemy import create_engine, String, Float, Integer, Boolean, Date, Text
 
 change_column_names = {
     'X': 'longitude',
@@ -54,7 +54,6 @@ dtypedict = {
     'runs_from': Boolean
 }
 
-
 class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument('path', type=str, help="Input data path")
@@ -62,7 +61,10 @@ class Command(BaseCommand):
     def handle(self, **kwargs):
         df = pd.read_csv(kwargs['path'])
         df['Date'] = pd.to_datetime(df.Date, format='%m%d%Y')
-        conn = create_engine("mysql+pymysql://root:rootroot@localhost/squirrel", encoding='utf-8')
+        engine = create_engine("mysql+pymysql://root:rootroot@localhost/squirrel", encoding='utf-8')
         df.rename(columns=change_column_names, inplace=True)
         df = df[dtypedict.keys()]
-        df.to_sql(name='Sighting', con=conn, if_exists='replace', index=False, dtype=dtypedict)
+        df.drop_duplicates('unique_squirrel_id', 'last', inplace=True)
+        df.to_sql(name='Sighting', con=engine, if_exists='replace', index=False, dtype=dtypedict)
+        with engine.connect() as conn:
+            conn.execute("ALTER TABLE Sighting ADD PRIMARY KEY (unique_squirrel_id);")
