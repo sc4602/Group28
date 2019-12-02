@@ -1,4 +1,5 @@
-from django.core.mangement.base import BaseCommand
+from django.core.management.base import BaseCommand
+import pandas as pd
 
 
 class Command(BaseCommand):
@@ -6,4 +7,5 @@ class Command(BaseCommand):
         parser.add_argument('path', type=str, help="Input data path")
 
     def handle(self, **kwargs):
-        print(kwargs["path"])
+        df = pd.read_csv(kwargs["path"])
+        print(df.head())
