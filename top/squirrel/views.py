@@ -43,7 +43,7 @@ def detail_sighting(request, unique_squirrel_id):
     if request.method == 'DELETE':
         # return HttpResponse('DELETE')
         delete_id = unique_squirrel_id
-        Sighting.objects.filter(id=delete_id).delete()  # 删除数据
+        Sighting.objects.filter(unique_squirrel_id=delete_id).delete()  # 删除数据
         #return redirect('/userlist/')
         return HttpResponse('DELETE ACCOMPLISHED')
     if request.method == 'POST':
@@ -81,7 +81,11 @@ def detail_sighting(request, unique_squirrel_id):
             tail_twitches=tail_twitches, approaches=approaches,
             indifferent=indifferent, runs_from=runs_from)
 
-    return HttpResponse('A view to update: %s' % unique_squirrel_id)
+
+        unique_squirrel_id=request.GET.get('unique_squirrel_id')
+        squirrel_query=Sighting.objects.filter(unique_squirrel_id=unique_squirrel_id).first()
+
+        return render(request, 'squirrel/detail_sighting.html',locals())
 
 
 # POST
@@ -138,7 +142,6 @@ def add_sighting(request):
                                 runs_from=runs_from)
         new_squirrel.save()
     return render(request, 'squirrel/add.html')
-
 
 
 # GET
