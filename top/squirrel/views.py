@@ -19,12 +19,19 @@ def list_sightings(request):
         return render(request, 'squirrel/list_sighting.html',locals())
 
 
-    return HttpResponse('A view to list all squirrel sightings with links to edit and add sightings.')
+    #return HttpResponse('A view to list all squirrel sightings with links to edit and add sightings.')
 
 
 # POST or DELETE
+@csrf_exempt
 def detail_sighting(request, unique_squirrel_id):
-    return HttpResponse('A view to update or delete: %s' % unique_squirrel_id)
+    if request.method == 'DELETE':
+        # return HttpResponse('DELETE')
+        delete_id = unique_squirrel_id
+        models.User.objects.filter(id=delete_id).delete()  # 删除数据
+        #return redirect('/userlist/')
+        return HttpResponse('DELETE ACCOMPLISHED')
+    #return HttpResponse('A view to update or delete: %s' % unique_squirrel_id)
 
 
 # POST
