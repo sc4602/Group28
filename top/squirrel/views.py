@@ -70,7 +70,7 @@ def detail_sighting(request, unique_squirrel_id):
         indifferent = request.POST.get('indifferent')
         runs_from = request.POST.get('runs_from')
 
-        Sighting.objects.filter(id=unique_squirrel_id).update(
+        Sighting.objects.filter(unique_squirrel_id=unique_squirrel_id).update(
             latitude=latitude, longitude=longitude, shift=shift,
             date=date, age=age, primary_fur_color=primary_fur_color,
             location=location, specific_location=specific_location,
@@ -79,6 +79,12 @@ def detail_sighting(request, unique_squirrel_id):
             kuks=kuks, quaas=quaas, moans=moans, tail_flags=tail_flags,
             tail_twitches=tail_twitches, approaches=approaches,
             indifferent=indifferent, runs_from=runs_from)
+
+    unique_squirrel_id=request.GET.get('unique_squirrel_id')
+    squirrel_query=Sighting.objects.filter(unique_squirrel_id=unique_squirrel_id).first()
+
+    return render(request, 'squirrel/detail_sighting.html',locals())
+
     # return HttpResponse('A view to update: %s' % unique_squirrel_id)
 
 
@@ -135,7 +141,7 @@ def add_sighting(request):
                                 indifferent=indifferent,
                                 runs_from=runs_from)
         new_squirrel.save()
-        return render(request, 'squirrel/add_sighting.html')
+    return render(request, 'squirrel/add.html')
     # return HttpResponse('A view to create a new sighting.')
 
 
