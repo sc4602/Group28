@@ -28,11 +28,12 @@ def display_map(request):
 
 # GET
 def list_sightings(request):
-    squirrel_list = Sighting.objects.all()
-    return HttpResponse(squirrel_list)
-    # if request.method == 'GET':
-    #     squirrel_list = Sighting.objects.all()
-    #     return render(request, 'squirrel/list_sighting.html',locals())
+    # squirrel_list = Sighting.objects.all()
+    # return HttpResponse(squirrel_list)
+
+    if request.method == 'GET':
+        squirrel_list = Sighting.objects.all()
+        return render(request, 'squirrel/list.html',locals())
     # return HttpResponse('A view to list all squirrel sightings with links to edit and add sightings.')
 
 
@@ -70,7 +71,7 @@ def detail_sighting(request, unique_squirrel_id):
         indifferent = request.POST.get('indifferent')
         runs_from = request.POST.get('runs_from')
 
-        Sighting.objects.filter(id=unique_squirrel_id).update(
+        Sighting.objects.filter(unique_squirrel_id=unique_squirrel_id).update(
             latitude=latitude, longitude=longitude, shift=shift,
             date=date, age=age, primary_fur_color=primary_fur_color,
             location=location, specific_location=specific_location,
@@ -79,7 +80,8 @@ def detail_sighting(request, unique_squirrel_id):
             kuks=kuks, quaas=quaas, moans=moans, tail_flags=tail_flags,
             tail_twitches=tail_twitches, approaches=approaches,
             indifferent=indifferent, runs_from=runs_from)
-    # return HttpResponse('A view to update: %s' % unique_squirrel_id)
+
+    return HttpResponse('A view to update: %s' % unique_squirrel_id)
 
 
 # POST
@@ -135,8 +137,8 @@ def add_sighting(request):
                                 indifferent=indifferent,
                                 runs_from=runs_from)
         new_squirrel.save()
-        return render(request, 'squirrel/add_sighting.html')
-    # return HttpResponse('A view to create a new sighting.')
+    return render(request, 'squirrel/add.html')
+
 
 
 # GET
