@@ -17,7 +17,7 @@
             <table class="table-hover table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Number</th>
+                        <th>ID</th>
                         <th>SQUIRRELS</th>
                         <th> </th>
                     </tr>
@@ -26,13 +26,13 @@
                     {% for foo in squirrel_list%}
 
                         <tr>
-                            <td>{{i}}</td>
+                            <td>{{foo.pk}}</td>
                             <td>{{ foo.unique_squirrel_id }}</td>
                             <td>
 
-                                <a href="/sightings/{{ foo.pk }}" class="btn btn-success" formmethod="post">EDIT</a>
+                                <a href="/sightings/{{ foo.unique_squirrel_id }}" class="btn btn-success" formmethod="post">EDIT</a>
 
-                                <a href="/sightings/{{ foo.pk }}" class="btn btn-success" formmethod="delete">DELETE</a>
+<!--                                <a href="/sightings/{{ foo.unique_squirrel_id }}" class="btn btn-success" formmethod="delete">DELETE</a>-->
                             </td>
                         </tr>
                     {% endfor %}

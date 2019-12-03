@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
@@ -31,6 +34,9 @@
                     <p>Approaches: <input type="text" name="Approaches" value="{{ squirrel_query.approaches }}" class="form-control"></p>
                     <p>Indifferent: <input type="text" name="Indifferent" value="{{ squirrel_query.indifferent }}" class="form-control"></p>
                     <input type="submit" class="btn btn-success">
+                </form>
+                <form action="" method="delete">
+                    <a href="/sightings/{{ squirrel_query.unique_squirrel_id }}" class="btn btn-success" formmethod="delete">DELETE</a>
                 </form>
 
             </div>

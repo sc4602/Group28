@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 import folium
@@ -28,13 +28,10 @@ def display_map(request):
 
 # GET
 def list_sightings(request):
-    # squirrel_list = Sighting.objects.all()
-    # return HttpResponse(squirrel_list)
-
     if request.method == 'GET':
         squirrel_list = Sighting.objects.all()
         return render(request, 'squirrel/list.html',locals())
-    # return HttpResponse('A view to list all squirrel sightings with links to edit and add sightings.')
+
 
 
 # POST or DELETE
@@ -44,7 +41,7 @@ def detail_sighting(request, unique_squirrel_id):
         # return HttpResponse('DELETE')
         delete_id = unique_squirrel_id
         Sighting.objects.filter(unique_squirrel_id=delete_id).delete()  # 删除数据
-        #return redirect('/userlist/')
+        # return redirect('/sightiings')
         return HttpResponse('DELETE ACCOMPLISHED')
     if request.method == 'POST':
         latitude = request.POST.get('latitude')
@@ -90,7 +87,7 @@ def detail_sighting(request, unique_squirrel_id):
 @csrf_exempt
 def add_sighting(request):
     if request.method == 'POST':
-        # return HttpResponse("POST Response")
+        # return HttpResponse('Success')
         latitude = request.POST.get('latitude')
         longitude = request.POST.get('longitude')
         unique_squirrel_id = request.POST.get('unique_squirrel_id')
@@ -138,8 +135,10 @@ def add_sighting(request):
                                 approaches=approaches,
                                 indifferent=indifferent,
                                 runs_from=runs_from)
+
         new_squirrel.save()
-    return render(request, 'squirrel/add.html')
+        return redirect('/sightings')
+    return render(request, 'squirrel/add.html',locals())
 
 
 # GET
