@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
+import sqlite3
 import pandas as pd
-from sqlalchemy import create_engine, String, Float, Integer, Boolean, Date, Text
+from sqlalchemy import create_engine, NVARCHAR, Float, Integer, Boolean, Date, Text
 
 change_column_names = {
     'X': 'longitude',
@@ -31,12 +32,12 @@ change_column_names = {
 dtypedict = {
     'longitude': Float,
     'latitude': Float,
-    'unique_squirrel_id': String(20),
-    'shift': String(3),
+    'unique_squirrel_id': NVARCHAR(length=20),
+    'shift': NVARCHAR(length=3),
     'date': Date,
-    'age': String(10),
-    'primary_fur_color': String(10),
-    'location': String(30),
+    'age': NVARCHAR(length=10),
+    'primary_fur_color': NVARCHAR(length=10),
+    'location': NVARCHAR(length=30),
     'specific_location': Text,
     'running': Boolean,
     'chasing': Boolean,
@@ -61,10 +62,8 @@ class Command(BaseCommand):
     def handle(self, **kwargs):
         df = pd.read_csv(kwargs['path'])
         df['Date'] = pd.to_datetime(df.Date, format='%m%d%Y')
-        engine = create_engine("mysql+pymysql://root:rootroot@localhost/squirrel", encoding='utf-8')
+        engine = create_engine('sqlite:///db.sqlite3')
         df.rename(columns=change_column_names, inplace=True)
         df = df[dtypedict.keys()]
-        df.drop_duplicates('unique_squirrel_id', 'last', inplace=True)
-        df.to_sql(name='Sighting', con=engine, if_exists='replace', index=False, dtype=dtypedict)
-        with engine.connect() as conn:
-            conn.execute("ALTER TABLE Sighting ADD PRIMARY KEY (unique_squirrel_id);")
+        # df.drop_duplicates('unique_squirrel_id', 'last', inplace=True)
+        df.to_sql(name='Sighting', con=engine, if_exists='replace', index=True, dtype=dtypedict)

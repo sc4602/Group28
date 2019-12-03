@@ -80,11 +80,9 @@ def detail_sighting(request, unique_squirrel_id):
             kuks=kuks, quaas=quaas, moans=moans, tail_flags=tail_flags,
             tail_twitches=tail_twitches, approaches=approaches,
             indifferent=indifferent, runs_from=runs_from)
-
-
-    unique_squirrel_id=request.GET.get('unique_squirrel_id')
-    squirrel_query=Sighting.objects.filter(unique_squirrel_id=unique_squirrel_id).first()
-
+    # unique_squirrel_id = request.GET.get('unique_squirrel_id')
+    squirrel_query = Sighting.objects.filter(unique_squirrel_id=unique_squirrel_id).first()
+    # return HttpResponse(unique_squirrel_id)
     return render(request, 'squirrel/detail_sighting.html',locals())
 
 
