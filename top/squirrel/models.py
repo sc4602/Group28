@@ -9,29 +9,30 @@ from django.db import models
 
 
 class Sighting(models.Model):
-    longitude = models.FloatField(blank=True, null=True)
-    latitude = models.FloatField(blank=True, null=True)
-    unique_squirrel_id = models.CharField(primary_key=True, max_length=20)
-    shift = models.CharField(max_length=3, blank=True, null=True)
+    index = models.BigIntegerField(primary_key=True, blank=True, null=False)
+    longitude = models.TextField(blank=True, null=True)  # This field type is a guess.
+    latitude = models.TextField(blank=True, null=True)  # This field type is a guess.
+    unique_squirrel_id = models.TextField(blank=True, null=True)  # This field type is a guess.
+    shift = models.TextField(blank=True, null=True)  # This field type is a guess.
     date = models.DateField(blank=True, null=True)
-    age = models.CharField(max_length=10, blank=True, null=True)
-    primary_fur_color = models.CharField(max_length=10, blank=True, null=True)
-    location = models.CharField(max_length=30, blank=True, null=True)
+    age = models.TextField(blank=True, null=True)  # This field type is a guess.
+    primary_fur_color = models.TextField(blank=True, null=True)  # This field type is a guess.
+    location = models.TextField(blank=True, null=True)  # This field type is a guess.
     specific_location = models.TextField(blank=True, null=True)
-    running = models.IntegerField(blank=True, null=True)
-    chasing = models.IntegerField(blank=True, null=True)
-    climbing = models.IntegerField(blank=True, null=True)
-    eating = models.IntegerField(blank=True, null=True)
-    foraging = models.IntegerField(blank=True, null=True)
+    running = models.BooleanField(blank=True, null=True)
+    chasing = models.BooleanField(blank=True, null=True)
+    climbing = models.BooleanField(blank=True, null=True)
+    eating = models.BooleanField(blank=True, null=True)
+    foraging = models.BooleanField(blank=True, null=True)
     other_activities = models.TextField(blank=True, null=True)
-    kuks = models.IntegerField(blank=True, null=True)
-    quaas = models.IntegerField(blank=True, null=True)
-    moans = models.IntegerField(blank=True, null=True)
-    tail_flags = models.IntegerField(blank=True, null=True)
-    tail_twitches = models.IntegerField(blank=True, null=True)
-    approaches = models.IntegerField(blank=True, null=True)
-    indifferent = models.IntegerField(blank=True, null=True)
-    runs_from = models.IntegerField(blank=True, null=True)
+    kuks = models.BooleanField(blank=True, null=True)
+    quaas = models.BooleanField(blank=True, null=True)
+    moans = models.BooleanField(blank=True, null=True)
+    tail_flags = models.BooleanField(blank=True, null=True)
+    tail_twitches = models.BooleanField(blank=True, null=True)
+    approaches = models.BooleanField(blank=True, null=True)
+    indifferent = models.BooleanField(blank=True, null=True)
+    runs_from = models.BooleanField(blank=True, null=True)
 
     class Meta:
         managed = True
