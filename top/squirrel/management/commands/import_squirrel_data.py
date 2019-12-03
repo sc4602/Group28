@@ -56,6 +56,7 @@ dtypedict = {
 }
 
 class Command(BaseCommand):
+
     def add_arguments(self, parser):
         parser.add_argument('path', type=str, help="Input data path")
 

@@ -37,13 +37,13 @@ def list_sightings(request):
 # POST or DELETE
 @csrf_exempt
 def detail_sighting(request, unique_squirrel_id):
-    if request.method == 'DELETE':
-        # return HttpResponse('DELETE')
+    if request.method == 'POST'and 'delete' in request.POST:
+        # return HttpResponse(request.POST)
         delete_id = unique_squirrel_id
         Sighting.objects.filter(unique_squirrel_id=delete_id).delete()  # 删除数据
         # return redirect('/sightiings')
         return HttpResponse('DELETE ACCOMPLISHED')
-    if request.method == 'POST':
+    elif request.method == 'POST':
         latitude = request.POST.get('latitude')
         longitude = request.POST.get('longitude')
 

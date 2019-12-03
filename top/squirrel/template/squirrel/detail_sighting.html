@@ -35,10 +35,10 @@
                     <p>Indifferent: <input type="text" name="indifferent" value="{{ squirrel_query.indifferent }}" class="form-control"></p>
                     <p>Runs From: <input type="text" name="runs_from" value="{{ squirrel_query.runs_from }}" class="form-control"></p>
                     <input type="submit" class="btn btn-success">
+                    <input type="submit" class="btn btn-success" name="delete" value ='DELETE'>
+
                 </form>
-                <form action="" method="delete">
-                    <a href="/sightings/{{ squirrel_query.unique_squirrel_id }}" class="btn btn-success" formmethod="delete">DELETE</a>
-                </form>
+
 
             </div>
             </div>
