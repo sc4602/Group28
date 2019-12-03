@@ -82,10 +82,10 @@ def detail_sighting(request, unique_squirrel_id):
             indifferent=indifferent, runs_from=runs_from)
 
 
-        unique_squirrel_id=request.GET.get('unique_squirrel_id')
-        squirrel_query=Sighting.objects.filter(unique_squirrel_id=unique_squirrel_id).first()
+    unique_squirrel_id=request.GET.get('unique_squirrel_id')
+    squirrel_query=Sighting.objects.filter(unique_squirrel_id=unique_squirrel_id).first()
 
-        return render(request, 'squirrel/detail_sighting.html',locals())
+    return render(request, 'squirrel/detail_sighting.html',locals())
 
 
 # POST
