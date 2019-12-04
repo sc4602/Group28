@@ -2,18 +2,6 @@
 
 <html lang="en">
 <head>
-    <script>
-        function deleteEmp(empId){
-			$.ajax({
-				url : "/sightings/{{ foo.unique_squirrel_id }}",
-				data : {_method : "DELETE", empId : empId},
-				type : "POST",
-				success : function(result){
-
-				}
-			})
-		}
-    </script>
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
@@ -25,33 +13,31 @@
     <div class="row">
     <h1>ALL SQUIRRELS</h1>
         <div class="col-md-8 col-md-offset-2">
-            <form action="" method="post">
-                <a href="/sightings/add" class="btn btn-success">ADD</a>
-                <table class="table-hover table table-bordered table-striped">
-                    <thead>
+            <a href="/sightings/add" class="btn btn-success">ADD</a>
+            <table class="table-hover table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>SQUIRRELS</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tobdy>
+                    {% for foo in squirrel_list%}
+
                         <tr>
-                            <th>ID</th>
-                            <th>SQUIRRELS</th>
-                            <th> </th>
-                        </tr>
-                    </thead>
-                    <tobdy>
-                        {% for foo in squirrel_list%}
-
-                            <tr>
-                                <td>{{foo.pk}}</td>
-                                <td>{{ foo.unique_squirrel_id }}</td>
-                                <td>
-
+                            <td>{{foo.pk}}</td>
+                            <td>{{ foo.unique_squirrel_id }}</td>
+                            <td>
+                                <form action="/sightings/{{ foo.unique_squirrel_id }}" method="post">
                                     <a href="/sightings/{{ foo.unique_squirrel_id }}" class="btn btn-success" formmethod="post">EDIT</a>
-
-                                    <a href="/sightings/{{ foo.unique_squirrel_id }}" class="btn btn-success" formmethod="post" value="delete">DELETE</a>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tobdy>
-                </table>
-            </form>
+                                    <input type="submit" class="btn btn-success" name="delete" value ='DELETE'>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tobdy>
+            </table>
         </div>
     </div>
 </div>
