@@ -25,22 +25,16 @@ def list_sightings(request):
         squirrel_list = Sighting.objects.all()
         return render(request, 'squirrel/list.html',locals())
 
-
-
 # POST or DELETE
 @csrf_exempt
 def detail_sighting(request, unique_squirrel_id):
-    if request.method == 'DELETE':
-        return redirect('/sightings')
-        return HttpResponse('DELETE ACCOMPLISHED')
+    if request.method == 'POST'and 'delete' in request.POST:
         delete_id = unique_squirrel_id
         Sighting.objects.filter(unique_squirrel_id=delete_id).delete()  # 删除数据
-        # return redirect('/sightiings')
-
-    if request.method == 'POST':
+        return HttpResponse('DELETE ACCOMPLISHED')
+    elif request.method == 'POST':
         latitude = request.POST.get('latitude')
         longitude = request.POST.get('longitude')
-
         shift = request.POST.get('shift')
         date = request.POST.get('date')
         age = request.POST.get('age')
@@ -71,17 +65,14 @@ def detail_sighting(request, unique_squirrel_id):
             kuks=kuks, quaas=quaas, moans=moans, tail_flags=tail_flags,
             tail_twitches=tail_twitches, approaches=approaches,
             indifferent=indifferent, runs_from=runs_from)
-    # unique_squirrel_id = request.GET.get('unique_squirrel_id')
     squirrel_query = Sighting.objects.filter(unique_squirrel_id=unique_squirrel_id).first()
-    # return HttpResponse(unique_squirrel_id)
-    return render(request, 'squirrel/detail_sighting.html',locals())
+    return render(request, 'squirrel/detail_sighting.html', locals())
 
 
 # POST
 @csrf_exempt
 def add_sighting(request):
     if request.method == 'POST':
-        # return HttpResponse('Success')
         latitude = request.POST.get('latitude')
         longitude = request.POST.get('longitude')
         unique_squirrel_id = request.POST.get('unique_squirrel_id')
@@ -138,5 +129,5 @@ def add_sighting(request):
 # GET
 def stats_sightings(request):
     if request.method == 'GET':
-        squirrel_list2 = Sighting.objects.values("unique_squirrel_id", "age", "running", "chasing", "runs_from")
-    return HttpResponse(squirrel_list2)
+        squirrel_list2 = Sighting.objects.all()
+    return render(request, 'squirrel/stats_sighting.html', locals())
