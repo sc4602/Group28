@@ -20,6 +20,7 @@ def display_map(request):
 
 
 # GET
+@csrf_exempt
 def list_sightings(request):
     if request.method == 'GET':
         squirrel_list = Sighting.objects.all()
