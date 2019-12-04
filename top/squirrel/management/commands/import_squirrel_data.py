@@ -1,5 +1,4 @@
 from django.core.management.base import BaseCommand
-import sqlite3
 import pandas as pd
 from sqlalchemy import create_engine, NVARCHAR, Float, Integer, Boolean, Date, Text
 
@@ -29,7 +28,7 @@ change_column_names = {
     'Runs from': 'runs_from'
 }
 
-dtypedict = {
+dict_type = {
     'longitude': Float,
     'latitude': Float,
     'unique_squirrel_id': NVARCHAR(length=20),
@@ -55,8 +54,8 @@ dtypedict = {
     'runs_from': Boolean
 }
 
-class Command(BaseCommand):
 
+class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument('path', type=str, help="Input data path")
 
@@ -65,6 +64,5 @@ class Command(BaseCommand):
         df['Date'] = pd.to_datetime(df.Date, format='%m%d%Y')
         engine = create_engine('sqlite:///db.sqlite3')
         df.rename(columns=change_column_names, inplace=True)
-        df = df[dtypedict.keys()]
-        # df.drop_duplicates('unique_squirrel_id', 'last', inplace=True)
+        df = df[dict_type.keys()]
         df.to_sql(name='Sighting', con=engine, if_exists='replace', index=True, dtype=dtypedict)

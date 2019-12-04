@@ -20,6 +20,7 @@ def display_map(request):
 
 
 # GET
+@csrf_exempt
 def list_sightings(request):
     if request.method == 'GET':
         squirrel_list = Sighting.objects.all()
@@ -31,7 +32,7 @@ def detail_sighting(request, unique_squirrel_id):
     if request.method == 'POST'and 'delete' in request.POST:
         delete_id = unique_squirrel_id
         Sighting.objects.filter(unique_squirrel_id=delete_id).delete()  # 删除数据
-        return HttpResponse('DELETE ACCOMPLISHED')
+        return redirect('/sightings')
     elif request.method == 'POST':
         latitude = request.POST.get('latitude')
         longitude = request.POST.get('longitude')
