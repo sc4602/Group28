@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+    <h1>ALL SQUIRRELS</h1>
+        <div class="col-md-8 col-md-offset-2">
+            <form action="" method="post">
+                <table class="table-hover table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>SQUIRRELS</th>
+                            <th>AGE</th>
+                            <th>RUNNING</th>
+                            <th>CHASING</th>
+                            <th>RUNS_FROM</th>
+                        </tr>
+                    </thead>
+                    <tobdy>
+                        {% for foo in squirrel_list2%}
+                            <tr>
+                                <td>{{foo.pk}}</td>
+                                <td>{{ foo.unique_squirrel_id }}</td>
+                                <td>{{ foo.age }}</td>
+                                <td>{{ foo.running }}</td>
+                                <td>{{ foo.chasing}}</td>
+                                <td>{{ foo.runs_from}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tobdy>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

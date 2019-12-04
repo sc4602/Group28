@@ -144,5 +144,5 @@ def add_sighting(request):
 # GET
 def stats_sightings(request):
     if request.method == 'GET':
-        squirrel_list2 = Sighting.objects.values("unique_squirrel_id", "age", "running", "chasing", "runs_from")
-    return HttpResponse(squirrel_list2)
+        squirrel_list2 = Sighting.objects.all()
+    return render(request, 'squirrel/stats_sighting.html', locals())
