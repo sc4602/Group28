@@ -34,6 +34,8 @@ def detail_sighting(request, unique_squirrel_id):
         Sighting.objects.filter(unique_squirrel_id=delete_id).delete()  # 删除数据
         return redirect('/sightings')
     elif request.method == 'POST':
+        # squirrel = Sighting.objects.get(unique_squirrel_id=unique_squirrel_id)
+        # if
         latitude = request.POST.get('latitude')
         longitude = request.POST.get('longitude')
         shift = request.POST.get('shift')
@@ -66,7 +68,8 @@ def detail_sighting(request, unique_squirrel_id):
             kuks=kuks, quaas=quaas, moans=moans, tail_flags=tail_flags,
             tail_twitches=tail_twitches, approaches=approaches,
             indifferent=indifferent, runs_from=runs_from)
-        squirrel_query = Sighting.objects.filter(unique_squirrel_id=unique_squirrel_id).first()
+
+    squirrel_query = Sighting.objects.filter(unique_squirrel_id=unique_squirrel_id).first()
 
     return render(request, 'squirrel/detail_sighting.html', locals())
 

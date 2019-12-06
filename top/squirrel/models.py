@@ -30,7 +30,6 @@ Age_Choice = (
 )
 
 
-
 class Sighting(models.Model):
     index = models.BigIntegerField(primary_key=True, blank=True, null=False)
     longitude = models.FloatField(blank=True, null=True)  # This field type is a guess.
@@ -47,7 +46,7 @@ class Sighting(models.Model):
     climbing = models.BooleanField(choices=Boolean_Choice)
     eating = models.BooleanField(choices=Boolean_Choice)
     foraging = models.BooleanField(choices=Boolean_Choice)
-    other_activities = models.TextField(choices=Boolean_Choice)
+    other_activities = models.TextField(blank=True, null=True)
     kuks = models.BooleanField(choices=Boolean_Choice)
     quaas = models.BooleanField(choices=Boolean_Choice)
     moans = models.BooleanField(choices=Boolean_Choice)
