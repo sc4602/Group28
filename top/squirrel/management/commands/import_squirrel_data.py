@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
 import sqlite3
 import pandas as pd
+import datetime
 from sqlalchemy import create_engine, NVARCHAR, Float, Integer, Boolean, Date, Text
 
 change_column_names = {
@@ -34,7 +35,7 @@ dtypedict = {
     'latitude': Float,
     'unique_squirrel_id': NVARCHAR(length=20),
     'shift': NVARCHAR(length=3),
-    'date': Date,
+    'date': NVARCHAR(length=10),
     'age': NVARCHAR(length=10),
     'primary_fur_color': NVARCHAR(length=10),
     'location': NVARCHAR(length=30),
@@ -62,16 +63,8 @@ class Command(BaseCommand):
 
     def handle(self, **kwargs):
         df = pd.read_csv(kwargs['path'])
-
-        time_tuple = time.strptime(date_str, fmt)
-
-        year, month, day = time_tuple[:3]
-
-        a_date = datetime.date(year, month, day)
-        df['Date'] = df.apply()pd.to_datetime(df.Date, format='%Y%m%d')
+        df['Date'] = (pd.to_datetime(df.Date, format='%m%d%Y')).apply(lambda x: x.strftime('%Y-%m-%d'))
         engine = create_engine('sqlite:///db.sqlite3')
         df.rename(columns=change_column_names, inplace=True)
         df = df[dtypedict.keys()]
-
-        # df.drop_duplicates('unique_squirrel_id', 'last', inplace=True)
         df.to_sql(name='Sighting', con=engine, if_exists='replace', index=True, dtype=dtypedict)
