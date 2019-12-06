@@ -22,6 +22,12 @@
                     <p>Primary Fur Color: <input type="text" name="primary_fur_color" value="{{ squirrel_query.primary_fur_color }}" class="form-control"></p>
                     <p>Location: <input type="text" name="location" value="{{ squirrel_query.location }}" class="form-control"></p>
                     <p>Specific Location: <input type="text" name="specific_location" value="{{ squirrel_query.specific_location }}" class="form-control"></p>
+                    <p>Running: <select id="running" name="running">-->
+                                    <option value= "{{ squirrel_query.running }}" selected>{{ squirrel_query.running }}</option>
+                                    <option value= "True" >True</option>
+                                    <option value= "False" >False</option>
+                    </select></p>
+                    <p>Chasing: <input type="text" name="chasing" value="{{ squirrel_query.chasing }}" class="form-control"></p>
                     <p>Climbing: <input type="text" name="climbing" value="{{ squirrel_query.climbing }}" class="form-control"></p>
                     <p>Eating: <input type="text" name="eating" value="{{ squirrel_query.eating }}" class="form-control"></p>
                     <p>Foraging: <input type="text" name="foraging" value="{{ squirrel_query.foraging }}" class="form-control"></p>
@@ -34,6 +40,11 @@
                     <p>Approaches: <input type="text" name="approaches" value="{{ squirrel_query.approaches }}" class="form-control"></p>
                     <p>Indifferent: <input type="text" name="indifferent" value="{{ squirrel_query.indifferent }}" class="form-control"></p>
                     <p>Runs From: <input type="text" name="runs_from" value="{{ squirrel_query.runs_from }}" class="form-control"></p>
+<!--                     {% csrf_token %}-->
+
+<!--                     {{ form.as_p }}-->
+<!--                     <br>-->
+
                     <input type="submit" class="btn btn-success" value = 'SUBMIT'>
                 </form>
             </div>

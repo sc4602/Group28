@@ -28,7 +28,7 @@ change_column_names = {
     'Runs from': 'runs_from'
 }
 
-dict_type = {
+dtypedict = {
     'longitude': Float,
     'latitude': Float,
     'unique_squirrel_id': NVARCHAR(length=20),
@@ -64,5 +64,5 @@ class Command(BaseCommand):
         df['Date'] = pd.to_datetime(df.Date, format='%m%d%Y')
         engine = create_engine('sqlite:///db.sqlite3')
         df.rename(columns=change_column_names, inplace=True)
-        df = df[dict_type.keys()]
+        df = df[dtypedict.keys()]
         df.to_sql(name='Sighting', con=engine, if_exists='replace', index=True, dtype=dtypedict)

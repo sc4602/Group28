@@ -8,31 +8,54 @@
 from django.db import models
 
 
+TRUE = 'True'
+FALSE = 'False'
+Boolean_Choice = (
+    (TRUE, 'True'),
+    (FALSE, 'False'),
+)
+
+AM = 'Am'
+PM = 'Pm'
+Shift_Choice = (
+    (AM, 'AM'),
+    (PM, 'PM'),
+)
+
+Adult = 'Adult'
+Juvenile = 'Juvenile'
+Age_Choice = (
+    (Adult, "Adult"),
+    (Juvenile, "Juvenile"),
+)
+
+
+
 class Sighting(models.Model):
     index = models.BigIntegerField(primary_key=True, blank=True, null=False)
-    longitude = models.TextField(blank=True, null=True)  # This field type is a guess.
-    latitude = models.TextField(blank=True, null=True)  # This field type is a guess.
-    unique_squirrel_id = models.TextField(blank=True, null=True)  # This field type is a guess.
-    shift = models.TextField(blank=True, null=True)  # This field type is a guess.
+    longitude = models.FloatField(blank=True, null=True)  # This field type is a guess.
+    latitude = models.FloatField(blank=True, null=True)  # This field type is a guess.
+    unique_squirrel_id = models.CharField(max_length=14)  # This field type is a guess.
+    shift = models.CharField(max_length=2, null=True, choices=Shift_Choice)  # This field type is a guess.
     date = models.DateField(blank=True, null=True)
-    age = models.TextField(blank=True, null=True)  # This field type is a guess.
+    age = models.CharField(max_length=10, blank=True, choices=Age_Choice)  # This field type is a guess.
     primary_fur_color = models.TextField(blank=True, null=True)  # This field type is a guess.
     location = models.TextField(blank=True, null=True)  # This field type is a guess.
     specific_location = models.TextField(blank=True, null=True)
-    running = models.BooleanField(blank=True, null=True)
-    chasing = models.BooleanField(blank=True, null=True)
-    climbing = models.BooleanField(blank=True, null=True)
-    eating = models.BooleanField(blank=True, null=True)
-    foraging = models.BooleanField(blank=True, null=True)
-    other_activities = models.TextField(blank=True, null=True)
-    kuks = models.BooleanField(blank=True, null=True)
-    quaas = models.BooleanField(blank=True, null=True)
-    moans = models.BooleanField(blank=True, null=True)
-    tail_flags = models.BooleanField(blank=True, null=True)
-    tail_twitches = models.BooleanField(blank=True, null=True)
-    approaches = models.BooleanField(blank=True, null=True)
-    indifferent = models.BooleanField(blank=True, null=True)
-    runs_from = models.BooleanField(blank=True, null=True)
+    running = models.BooleanField(choices=Boolean_Choice)
+    chasing = models.BooleanField(choices=Boolean_Choice)
+    climbing = models.BooleanField(choices=Boolean_Choice)
+    eating = models.BooleanField(choices=Boolean_Choice)
+    foraging = models.BooleanField(choices=Boolean_Choice)
+    other_activities = models.TextField(choices=Boolean_Choice)
+    kuks = models.BooleanField(choices=Boolean_Choice)
+    quaas = models.BooleanField(choices=Boolean_Choice)
+    moans = models.BooleanField(choices=Boolean_Choice)
+    tail_flags = models.BooleanField(choices=Boolean_Choice)
+    tail_twitches = models.BooleanField(choices=Boolean_Choice)
+    approaches = models.BooleanField(choices=Boolean_Choice)
+    indifferent = models.BooleanField(choices=Boolean_Choice)
+    runs_from = models.BooleanField(choices=Boolean_Choice)
 
     class Meta:
         managed = True
