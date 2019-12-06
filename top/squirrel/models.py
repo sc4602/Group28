@@ -36,7 +36,7 @@ class Sighting(models.Model):
     latitude = models.FloatField(blank=True, null=True)  # This field type is a guess.
     unique_squirrel_id = models.CharField(max_length=14)  # This field type is a guess.
     shift = models.CharField(max_length=2, null=True, choices=Shift_Choice)  # This field type is a guess.
-    date = models.DateField(blank=True, null=True)
+    date = models.TextField(blank=True, null=True)
     age = models.CharField(max_length=10, blank=True, choices=Age_Choice)  # This field type is a guess.
     primary_fur_color = models.TextField(blank=True, null=True)  # This field type is a guess.
     location = models.TextField(blank=True, null=True)  # This field type is a guess.

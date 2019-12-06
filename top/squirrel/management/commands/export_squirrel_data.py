@@ -11,7 +11,7 @@ class Command(BaseCommand):
         parser.add_argument('path', type=str, help="Input data path")
 
     def handle(self, *args, **options):
-        headers = ['longitude', 'latitude', 'unique squirrel id', 'shift', 'date', 'age', 'primary fur color',
+        headers = ['primal key', 'longitude', 'latitude', 'unique squirrel id', 'shift', 'date', 'age', 'primary fur color',
                    'location', 'specific_location', 'running', 'chasing', 'climbing', 'eating', 'foraging',
                    'other activities', 'kuks', 'quaas', 'moans', 'tail flags', 'tail twitches', 'approaches',
                    'indifferent', 'runs from']

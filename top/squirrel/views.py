@@ -68,6 +68,7 @@ def detail_sighting(request, unique_squirrel_id):
             kuks=kuks, quaas=quaas, moans=moans, tail_flags=tail_flags,
             tail_twitches=tail_twitches, approaches=approaches,
             indifferent=indifferent, runs_from=runs_from)
+        return redirect('/sightings')
 
     squirrel_query = Sighting.objects.filter(unique_squirrel_id=unique_squirrel_id).first()
 
