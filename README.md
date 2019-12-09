@@ -80,7 +80,7 @@ Models
 -----------------
 By run the following to construct the models from database automatically:
 ```
-python manage.py inspectdb
+$ python manage.py inspectdb
 ```
 
 Views
