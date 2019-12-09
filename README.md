@@ -32,15 +32,63 @@ In order to meet Joffrey Hosencratz's demand, we developped a web application wi
 
 
 
-Build Up Project and App Structure
+Build up Project and App Structure
 -----------------
-### Build up project
+### Build up Project
 
+Install pip:
+```
+$ pip install -U pip
+```
+Use [pip](https://pip.pypa.io/en/stable/) to install [django](https://www.djangoproject.com/) in your computer:
+```
+$ pip install django
+```
+Create a directory called Group28 to store our project:
+```
+$ mkdir Group28
+```
+Create a django project called top in the directory:
+```
+$ django-admin startproject top
+```
+This will create a top directory in our current directory Group28. In this directory, there are following files and directories, Let's look at what the startproject create:
+```
+top/
+   manage.py
+   top/
+        __init__.py
+        settings.py
+        urls.py
+        wsgi.py
+```
+The outter top directory is just a directory contains all the files and directories, the inner top directory is the real project.
 ### Build up Application
-
-
-
-
+To build up our application, we change into the outter top directory:
+```
+$ cd top/
+```
+Create a django application called squirrel in the directory:
+```
+$ django-admin startapp squirrel
+```
+This will create a squirrel directory in our current directory top. In this directory, there are following files and directories, Let's look at what the startapp create:
+```
+top/
+   manage.py
+   squirrel/
+	__init__.py
+	admin.py
+	apps.py
+	models.py
+	tests.py
+	views.py
+   top/
+        __init__.py
+        settings.py
+        urls.py
+        wsgi.py
+```
 
 Import Data
 -----------------
