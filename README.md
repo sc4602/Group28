@@ -89,9 +89,59 @@ top/
         urls.py
         wsgi.py
 ```
+Then add the application to the project by adding 'squirrel' into INSTALLED_APPS list:
+```
+$ vim top/settings.py
+```
+
+#### Note: 
+This project is done on our own terminal and no virtual environment has been set up.
 
 Import Data
 -----------------
+### Construct Management Commands directory
+On the outter top directory we create a management directory:
+```
+$ mkdir management
+```
+Change into managenent directory:
+```
+$ cd management
+```
+Create a commands directory:
+```
+$ mkdir commands
+```
+
+### Our dataset
+In this part, we want to realize a function to import the data into our database. Our dataset is collected from the
+He would like to start keeping track of all the known squirrels and plans to start with Central Park. He’s asked you to build an application that can import the 2018 Central Park Squirrel Census data and allow his team to add, update, and view squirrel data.
+
+### Import Squirrel data
+
+
+Now our directory looks like this:
+```
+top/
+   manage.py
+   management/
+   	commands/
+		import_squirrel_data.py
+   squirrel/
+	__init__.py
+	admin.py
+	apps.py
+	models.py
+	tests.py
+	views.py
+   top/
+        __init__.py
+        settings.py
+        urls.py
+        wsgi.py
+```
+ 
+
 
 
 Models
