@@ -65,26 +65,7 @@ This project is done on our own terminal and no virtual environment has been set
 
 Import Data
 -----------------
-### Construct Management Commands directory
-On the outter top directory we create a management directory:
-```
-$ mkdir management
-```
-Change into managenent directory:
-```
-$ cd management
-```
-Create a commands directory:
-```
-$ mkdir commands
-```
-
-### Import Squirrel Data and Construct the Database
-All websites should have their own database, this part builds up a function to construct the database and import the data into it by using file's path.
-Create a file called import_squirrel_data.py in commands directory:
-```
-$ vim import_squirrel_data.py
-```
+All websites should have their own database, this part builds up a function to construct the database and import the data into it by using file's path. By creating management/commands/import_squirrel_data.py in the outter top directory
 Since it is a management commands file, the function constructed in the following structure:
 ```
 from django.core.management.base import BaseCommand
@@ -105,35 +86,13 @@ After setting the features and datatype, then the following enables the function
 ```
 df.to_sql(name='Sighting', con=engine, if_exists='replace', index=True, dtype=dtypedict)
 ```
-
+### Command
+A command that can be used to import the data from the 2018 census file (in CSV format). The file path should be specified at the command line after the name of the management command.
+```
+$ python manage.py import_squirrel_data /path/to/file.csv
+```
 ##### Note: Data in db.sqlite3
-Joffrey Hosencratz would like to start keeping track of all the known squirrels and plans to start with Central Park. So the data in db.sqlite3 is now [the 2018 Central Park Squirrel Census data](https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw).
-
-
-
-Now our directory looks like this:
-```
-top/
-   manage.py
-   management/
-   	commands/
-		import_squirrel_data.py
-   squirrel/
-	__init__.py
-	admin.py
-	apps.py
-	models.py
-	tests.py
-	views.py
-   top/
-        __init__.py
-        settings.py
-        urls.py
-        wsgi.py
-```
- 
-
-
+Joffrey Hosencratz would like to start keeping track of all the known squirrels and plans to start with Central Park. So the data in db.sqlite3 is now [the 2018 Central Park Squirrel Census data](https://data.cityofnewyork.us/api/views/vfnx-vebw/rows.csv).
 
 Models
 -----------------
