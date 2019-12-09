@@ -175,14 +175,31 @@ Models
 Views
 -----------------
 ### Map
+In the map web page, you can view the distribution of 100-randomly-picked-up squirrels in Central Park whiched are marked up by their unique_squirrel_id. A function named display_map is used to display the map. This function returns to a squirrel/map.html. You can call this function by entering the [/map](https://tools-for-analytics-254314.appspot.com/sightings/).
 
 ### List All Squirrels
+You can view a list of unique_squirrel_id of all the squirrels in a table, above which a green button named add is presented for you to add a new squirrel. In the end of each row of squirrels in the table, there are two buttons named edit and delete. You can realize the add, update and delete functions by pressing these buttons respectively.
+
+See the list of squirrels by entering [/sightings](https://tools-for-analytics-254314.appspot.com/sightings/).
+
+Click the add button to enter the add-page [/sightings/add](https://tools-for-analytics-254314.appspot.com/sightings/add).
+
+Click the edit button to enter the update-page [/sightings/<unique_squirrel_id>](https://tools-for-analytics-254314.appspot.com/sightings/<unique_squirrel_id>).
+
+Click the delete button to delete a squirrel [/sightings/<unique_squirrel_id>](https://tools-for-analytics-254314.appspot.com/sightings/<unique_squirrel_id>).
 
 ### Add Squirrel
+When you enter this Adding page by clicking add button, you can fill out the information of the squirrel you want to add.For some fields, you need to click the button to choose between some available choices like True and False or something else. 
+
+After filling out the information, click Submit button below and you will be redirect to [/sightings](https://tools-for-analytics-254314.appspot.com/sightings/) where you can find your newly-added squirrel by searching it's unique_squrrel_id.
 
 ### Edit Squirrel
+When you enter this editing page by clicking Edit button beside each squirrel, you can see all the detailed information of a specific squirrel. You now can make changes to any attributes. For some fields, you need to click the button to choose between some available choices. The old attributes are marked up by dash lines on each side to distinguish with any new changes you make.
+
+After this, click Submit button below to and you will be redirect to [/sightings](https://tools-for-analytics-254314.appspot.com/sightings/) where you can find your newly-updated squirrel.
 
 ### Delete Squirrel
+When you click the Delete button, the squirrel beside will be deleted from the database.
 
 Export Data
 -----------------
