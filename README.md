@@ -28,7 +28,7 @@
 </table>   
    
    
-In order to meet Joffrey Hosencratz's demand, we developped a web application with the [Django](https://www.djangoproject.com/) framework. This application can perform the following functions. First, it can show the the distribution of squirrel on a map. Second, it shows the whole list with all the squirrels in the database with add, edit and delete buttoms on it. Besides, these 3 kinds of buttoms can perform the adding, editing and deleting functions respectively. Finally, there is a stats page shows the attributes of all the squirrels in the database.
+In order to meet Joffrey Hosencratz's demand, the web application is constructed with the [Django](https://www.djangoproject.com/) framework. This application can perform the following functions. First, it can show the the distribution of squirrel on a map. Second, it shows the whole list with all the squirrels in the database with add, edit and delete buttoms on it. Besides, these 3 kinds of buttoms can perform the adding, editing and deleting functions respectively. Finally, there is a stats page shows the attributes of all the squirrels in the database.
 
 
 
@@ -65,29 +65,11 @@ This project is done on our own terminal and no virtual environment has been set
 
 Import Data
 -----------------
-All websites should have their own database, this part builds up a function to construct the database and import the data into it by using file's path. By creating management/commands/import_squirrel_data.py in the outter top directory
-Since it is a management commands file, the function constructed in the following structure:
-```
-from django.core.management.base import BaseCommand
-class Command(BaseCommand):
-    def add_arguments(self, parser):
-        parser.add_argument(...)
-
-    def handle(self, *kwargs, **options):
-    	...
-```
+All websites should have their own database, this part builds up a function to construct the database and import the data into it by using file's path. By creating management/commands/import_squirrel_data.py in the outter top directory.
 In considering the features a squirrel has, longtitude(float), latitude(float), unique_squirrel_id(NVARCHAR), shift(NVARCHAR), date(Date), age(NVARCHAR), primary_fur_color(NVARCHAR), location(NVARCHAR), specific_location(Text), running(Boolean), chasing(Boolean), climbing(Boolean), eating(Boolean), foraging(Boolean), other_activities(Text), kuks(Boolean), quaas(Boolean), moans(Boolean), tail_flags(Boolean), tail_twitches(Boolean), approaches(Boolean), indiffernt(Boolean), runs_from(Boolean) are included into database. Besides, the type and maximum length are setted to the features.
-Create database:
-```
-from sqlalchemy import create_engine
-engine = create_engine('sqlite:///db.sqlite3')
-```
-After setting the features and datatype, then the following enables the function to import data into a table called Sighitng into database:
-```
-df.to_sql(name='Sighting', con=engine, if_exists='replace', index=True, dtype=dtypedict)
-```
-### Command
-A command that can be used to import the data from the 2018 census file (in CSV format). The file path should be specified at the command line after the name of the management command.
+
+### So how to use this command
+The following command can be used to import the data from the 2018 census file (in CSV format), the file path should be specified after the management command:
 ```
 $ python manage.py import_squirrel_data /path/to/file.csv
 ```
@@ -96,6 +78,7 @@ Joffrey Hosencratz would like to start keeping track of all the known squirrels 
 
 Models
 -----------------
+By run 
 
 Views
 -----------------
