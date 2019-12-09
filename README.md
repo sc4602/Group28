@@ -34,45 +34,14 @@ In order to meet Joffrey Hosencratz's demand, we developped a web application wi
 
 Build up Project and App Structure
 -----------------
-### Build up Project
-
-Install pip:
-```
-$ pip install -U pip
-```
-Use [pip](https://pip.pypa.io/en/stable/) to install [django](https://www.djangoproject.com/) in your computer:
-```
-$ pip install django
-```
-Create a directory called Group28 to store our project:
-```
-$ mkdir Group28
-```
-Create a django project called top in the directory:
+### Build up Project and Application
+Create a django project called top in the directory and Create a django application called squirrel in the directory:
 ```
 $ django-admin startproject top
-```
-This will create a top directory in our current directory Group28. In this directory, there are following files and directories, Let's look at what the startproject create:
-```
-top/
-   manage.py
-   top/
-        __init__.py
-        settings.py
-        urls.py
-        wsgi.py
-```
-The outter top directory is just a directory contains all the files and directories, the inner top directory is the real project.
-### Build up Application
-To build up our application, we change into the outter top directory:
-```
 $ cd top/
-```
-Create a django application called squirrel in the directory:
-```
 $ django-admin startapp squirrel
 ```
-This will create a squirrel directory in our current directory top. In this directory, there are following files and directories, Let's look at what the startapp create:
+This will create a top directory in directory Group28 and a squirrel directory in the current directory top. In this directory, there are following files and directories, Let's look at what the startapp create:
 ```
 top/
    manage.py
@@ -89,12 +58,9 @@ top/
         urls.py
         wsgi.py
 ```
-Then add the application to the project by adding 'squirrel' into INSTALLED_APPS list:
-```
-$ vim top/settings.py
-```
 
-#### Note: 
+##### Note:
+The outter top directory is just a directory contains all the files and directories, the inner top directory is the real project.
 This project is done on our own terminal and no virtual environment has been set up.
 
 Import Data
