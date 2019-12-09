@@ -78,7 +78,10 @@ Joffrey Hosencratz would like to start keeping track of all the known squirrels 
 
 Models
 -----------------
-By run 
+By run the following to construct the models from database automatically:
+```
+python manage.py inspectdb
+```
 
 Views
 -----------------
@@ -111,7 +114,10 @@ When you click the Delete button, the squirrel beside will be deleted from the d
 
 Export Data
 -----------------
-
+The following command can be used to export the data to a csv file, the file path should be specified after the management command:
+```
+$ python manage.py export_squirrel_data /path/to/file.csv
+```
 
 
 <div align="center">
