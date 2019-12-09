@@ -100,16 +100,3 @@ The following command can be used to export the data to a csv file, the file pat
 ```
 $ python manage.py export_squirrel_data /path/to/file.csv
 ```
-
-
-<div align="center">
-  <img src="https://dev.pandas.io/static/img/pandas.svg"><br>
-</div>
-
------------------
-
-
-
-  
-
- 
