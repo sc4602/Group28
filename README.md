@@ -32,31 +32,13 @@ In order to meet Joffrey Hosencratz's demand, the web application is constructed
 
 
 
-Build up Project and App Structure
+Build up Project and Application
 -----------------
-### Build up Project and Application
 Create a django project called top in the directory and Create a django application called squirrel in the directory:
 ```
 $ django-admin startproject top
 $ cd top/
 $ django-admin startapp squirrel
-```
-This will create a top directory in directory Group28 and a squirrel directory in the current directory top. In this directory, there are following files and directories, Let's look at what the startapp create:
-```
-top/
-   manage.py
-   squirrel/
-	__init__.py
-	admin.py
-	apps.py
-	models.py
-	tests.py
-	views.py
-   top/
-        __init__.py
-        settings.py
-        urls.py
-        wsgi.py
 ```
 
 ##### Note:
