@@ -1,108 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>-->
+<!--    <script src="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+<!--    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <title>Title</title>
     </head>
 	<body>
     	<div class="container">
         	<div class="row">
             <h1>Add Squirrel</h1>
-            <div class="col-md-6 col-md-offset-3">
-            	<form action="" method="post">
-                    <p> Longitude: <input type="text" name="longitude" class="form-control"></p>
-                    <p> Latitude: <input type="text" name="latitude" class="form-control"></p>
-                    <p> Unique Squirrel ID: <input type="text" name="unique_squirrel_id" class="form-control"></p>
-                    <p>Shift:
-                        <select id="shift" name="shift">
-                            <option  value = "AM">AM</option >
-                            <option  value = "PM">PM</option >
-                        </select>
-                    </p >
-                    <p> Date: <input type="date" name="date" class="form-control"></p>
-                    <p> Age:
-                        <select id="age" name="age">
-                            <option  value = "Adult">Adult</option >
-                            <option  value = "Juvenile">Juvenile</option >
-                        </select>
-                    </p >
-                    <p> Primary Fur Color: <input type="text" name="primary_fur_color" class="form-control"></p>
-                    <p> Location: <input type="text" name="location" class="form-control"></p>
-                    <p> Specific Location: <input type="text" name="specific_location" class="form-control"></p>
-					<p> Climbing:
-                        <select id="climbing" name="climbing">
-                            <option  value = "True">True</option >
-                            <option  value = "False">False</option >
-                        </select>
-                    </p>
-                    <p> Eating:
-                        <select id='eating' name="eating">
-                            <option  value = "True">True</option >
-                            <option  value = "False">False</option >
-                        </select>
-                    </p>
-					<p> Foraging:
-                        <select id='foraging' name="foraging">
-                            <option  value = "True">True</option >
-                            <option  value = "False">False</option >
-                        </select>
-                    </p>
-					<p> Other Activities: <input type="text" name="other_activities" class="form-control"></p>
-                    <p> Kuks:
-                        <select id='kuks' name="kuks">
-                            <option  value = "True">True</option >
-                            <option  value = "False">False</option >
-                        </select>
-                    </p>
-                    <p> Quaas:
-                        <select id='quaas' name="quaas">
-                            <option  value = "True">True</option >
-                            <option  value = "False">False</option >
-                        </select>
-                    </p>
-                    <p> Moans:
-                        <select id='moans' name="moans">
-                            <option  value = "True">True</option >
-                            <option  value = "False">False</option >
-                        </select>
-                    </p>
-                    <p> Tail flags:
-                        <select id='tail flags' name="tail flags">
-                            <option  value = "True">True</option >
-                            <option  value = "False">False</option >
-                        </select>
-                    </p>
-					<p> Tail twitches:
-                        <select id='tail twitches' name="tail twitches">
-                            <option  value = "True">True</option >
-                            <option  value = "False">False</option >
-                        </select>
-                    </p>
-                    <p> Approaches:
-                        <select id='approaches' name="approaches">
-                            <option  value = "True">True</option >
-                            <option  value = "False">False</option >
-                        </select>
-                    </p>
-                    <p> Indifferent:
-                        <select id='indifference' name="indifference">
-                            <option  value = "True">True</option >
-                            <option  value = "False">False</option >
-                        </select>
-                    </p>
-                    <p> Runs From:
-                        <select id="runs from" name="runs from">
-                            <option  value = "True">True</option >
-                            <option  value = "False">False</option >
-                        </select>
-                    </p>
-                    <input type="submit" class="btn btn-success" value="Submit">
-                </form>
-            </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <form action="" method="post">
+                        <p> Longitude: <input type="text" name="longitude" class="form-control"></p>
+                        <p> Latitude: <input type="text" name="latitude" class="form-control"></p>
+                        <p> Unique Squirrel ID: <input type="text" name="unique_squirrel_id" class="form-control"></p>
+                        <p>Shift:
+                            <select id="shift" name="shift">
+                                <option  value = "AM">AM</option >
+                                <option  value = "PM">PM</option >
+                            </select>
+                        </p >
+                        <p> Date: <input type="date" name="date" class="form-control"></p>
+                        <p> Age:
+                            <select id="age" name="age">
+                                <option  value = "Adult">Adult</option >
+                                <option  value = "Juvenile">Juvenile</option >
+                            </select>
+                        </p >
+                        <p> Primary Fur Color: <input type="text" name="primary_fur_color" class="form-control"></p>
+                        <p> Location: <input type="text" name="location" class="form-control"></p>
+                        <p> Specific Location: <input type="text" name="specific_location" class="form-control"></p>
+                        <p> Climbing:
+                            <select id="climbing" name="climbing">
+                                <option  value = "True">True</option >
+                                <option  value = "False">False</option >
+                            </select>
+                        </p>
+                        <p> Eating:
+                            <select id='eating' name="eating">
+                                <option  value = "True">True</option >
+                                <option  value = "False">False</option >
+                            </select>
+                        </p>
+                        <p> Foraging:
+                            <select id='foraging' name="foraging">
+                                <option  value = "True">True</option >
+                                <option  value = "False">False</option >
+                            </select>
+                        </p>
+                        <p> Other Activities: <input type="text" name="other_activities" class="form-control"></p>
+                        <p> Kuks:
+                            <select id='kuks' name="kuks">
+                                <option  value = "True">True</option >
+                                <option  value = "False">False</option >
+                            </select>
+                        </p>
+                        <p> Quaas:
+                            <select id='quaas' name="quaas">
+                                <option  value = "True">True</option >
+                                <option  value = "False">False</option >
+                            </select>
+                        </p>
+                        <p> Moans:
+                            <select id='moans' name="moans">
+                                <option  value = "True">True</option >
+                                <option  value = "False">False</option >
+                            </select>
+                        </p>
+                        <p> Tail flags:
+                            <select id='tail flags' name="tail flags">
+                                <option  value = "True">True</option >
+                                <option  value = "False">False</option >
+                            </select>
+                        </p>
+                        <p> Tail twitches:
+                            <select id='tail twitches' name="tail twitches">
+                                <option  value = "True">True</option >
+                                <option  value = "False">False</option >
+                            </select>
+                        </p>
+                        <p> Approaches:
+                            <select id='approaches' name="approaches">
+                                <option  value = "True">True</option >
+                                <option  value = "False">False</option >
+                            </select>
+                        </p>
+                        <p> Indifferent:
+                            <select id='indifference' name="indifference">
+                                <option  value = "True">True</option >
+                                <option  value = "False">False</option >
+                            </select>
+                        </p>
+                        <p> Runs From:
+                            <select id="runs from" name="runs from">
+                                <option  value = "True">True</option >
+                                <option  value = "False">False</option >
+                            </select>
+                        </p>
+                        <input type="submit" class="btn btn-success" value="Submit">
+                    </form>
+                </div>
             </div>
         </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     </body>
 </html>
