@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand
 import sqlite3
 import pandas as pd
 import datetime
-from sqlalchemy import create_engine, NVARCHAR, Float, Integer, Boolean, Date, Text
+from sqlalchemy import create_engine, NVARCHAR, Float, Boolean, Date, Text
 
 change_column_names = {
     'X': 'longitude',
@@ -56,8 +56,8 @@ dtypedict = {
     'runs_from': Boolean
 }
 
-class Command(BaseCommand):
 
+class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument('path', type=str, help="Input data path")
 
