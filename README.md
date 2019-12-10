@@ -100,3 +100,13 @@ The following command can be used to export the data to a csv file, the file pat
 ```
 $ python manage.py export_squirrel_data /path/to/file.csv
 ```
+
+Group Information
+-----------------
+##### top Group 28, Section 1
+
+##### UNIs:[yl4296, sc4602]
+
+##### server: https://tools-for-analytics-254314.appspot.com/
+
+
