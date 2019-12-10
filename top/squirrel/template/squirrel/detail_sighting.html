@@ -19,26 +19,86 @@
                     <input type="hidden" name="unique_squirrel_id" value="{{ squirrel_query.unique_squirrel_id }}">
                     <p>Longitude: <input type="text" name="longitude" value="{{ squirrel_query.longitude }}" class="form-control"></p >
                     <p>Latitude: <input type="text" name="latitude" value="{{ squirrel_query.latitude }}" class="form-control"></p >
-                    <p>Shift: <input type="text" name="shift" value="{{ squirrel_query.shift }}" class="form-control"></p >
+                    <p>Shift: <select id="shift" name="shift">
+                        <option  value = "{{ squirrel_query.shift }}">--{{ squirrel_query.shift }}--</option >
+                        <option  value = "AM">AM</option >
+                        <option  value = "PM">PM</option >
+                    </select></p >
                     <p>Date: <input type="date" name="date" value="{{ squirrel_query.date }}" class="form-control"></p >
-                    <p>Age: <input type="text" name="age" value="{{ squirrel_query.age }}" class="form-control"></p >
+                    <p>Age: <select id="age" name="age">
+                        <option  value = "{{ squirrel_query.age }}">--{{ squirrel_query.age }}--</option >
+                        <option  value = "Adult">Adult</option >
+                        <option  value = "Juvenile">Juvenile</option >
+                    </select></p >
                     <p>Primary Fur Color: <input type="text" name="primary_fur_color" value="{{ squirrel_query.primary_fur_color }}" class="form-control"></p >
                     <p>Location: <input type="text" name="location" value="{{ squirrel_query.location }}" class="form-control"></p >
                     <p>Specific Location: <input type="text" name="specific_location" value="{{ squirrel_query.specific_location }}" class="form-control"></p >
-                    <p>Running: <input  type="radio" name="running" value="{{ squirrel_query.running }}" class="form-control"></p >
-                    <p>Chasing: <input type="text" name="chasing" value="{{ squirrel_query.chasing }}" class="form-control"></p >
-                    <p>Climbing: <input type="text" name="climbing" value="{{ squirrel_query.climbing }}" class="form-control"></p >
-                    <p>Eating: <input type="text" name="eating" value="{{ squirrel_query.eating }}" class="form-control"></p >
-                    <p>Foraging: <input type="text" name="foraging" value="{{ squirrel_query.foraging }}" class="form-control"></p >
+                    <p>Running: <select id="running" name="running">
+                        <option  value = "{{ squirrel_query.running }}">--{{ squirrel_query.running }}--</option >
+                        <option  value = "False">False</option >
+                        <option  value = "True">True</option >
+                    </select></p >
+                    <p>Chasing: <select id="chasing" name="chasing">
+                        <option  value = "{{ squirrel_query.chasing }}">--{{ squirrel_query.chasing }}--</option >
+                        <option  value = "False">False</option >
+                        <option  value = "True">True</option >
+                    </select></p >
+                    <p>Climbing: <select id="climbing" name="climbing">
+                        <option  value = "{{ squirrel_query.climbing }}">--{{ squirrel_query.climbing }}--</option >
+                        <option  value = "False">False</option >
+                        <option  value = "True">True</option >
+                    </select></p >
+                    <p>Eating: <select id="eating" name="eating">
+                        <option  value = "{{ squirrel_query.eating }}">--{{ squirrel_query.eating }}--</option >
+                        <option  value = "False">False</option >
+                        <option  value = "True">True</option >
+                    </select></p >
+                    <p>Foraging: <select id="foraging" name="foraging">
+                        <option  value = "{{ squirrel_query.foraging }}">--{{ squirrel_query.foraging }}--</option >
+                        <option  value = "False">False</option >
+                        <option  value = "True">True</option >
+                    </select></p >
                     <p>Other Activities: <input type="text" name="other_activities" value="{{ squirrel_query.other_activities }}" class="form-control"></p >
-                    <p>Kuks: <input type="text" name="kuks" value="{{ squirrel_query.kuks }}" class="form-control"></p >
-                    <p>Quaas: <input type="text" name="quaas" value="{{ squirrel_query.quaas }}" class="form-control"></p >
-                    <p>Moans: <input type="text" name="moans" value="{{ squirrel_query.moans }}" class="form-control"></p >
-                    <p>Tail flags: <input type="text" name="tail_flags" value="{{ squirrel_query.tail_flags }}" class="form-control"></p >
-                    <p>Tail twitches: <input type="text" name="tail_twitches" value="{{ squirrel_query.tail_twitches }}" class="form-control"></p >
-                    <p>Approaches: <input type="text" name="approaches" value="{{ squirrel_query.approaches }}" class="form-control"></p >
-                    <p>Indifferent: <input type="text" name="indifferent" value="{{ squirrel_query.indifferent }}" class="form-control"></p >
-                    <p>Runs From: <input type="text" name="runs_from" value="{{ squirrel_query.runs_from }}" class="form-control"></p >
+                    <p>Kuks: <select id="kuks" name="kuks">
+                        <option  value = "{{ squirrel_query.kuks }}">--{{ squirrel_query.kuks }}--</option >
+                        <option  value = "False">False</option >
+                        <option  value = "True">True</option >
+                    </select></p >
+                    <p>Quaas: <select id="quass" name="quass">
+                        <option  value = "{{ squirrel_query.quass }}">--{{ squirrel_query.quass }}--</option >
+                        <option  value = "False">False</option >
+                        <option  value = "True">True</option >
+                    </select></p >
+                    <p>Moans: <select id="moans" name="moans">
+                        <option  value = "{{ squirrel_query.moans }}">--{{ squirrel_query.moans }}--</option >
+                        <option  value = "False">False</option >
+                        <option  value = "True">True</option >
+                    </select></p >
+                    <p>Tail flags: <select id="tail_flags" name="tail_flags">
+                        <option  value = "{{ squirrel_query.tail_flags }}">--{{ squirrel_query.tail_flags }}--</option >
+                        <option  value = "False">False</option >
+                        <option  value = "True">True</option >
+                    </select></p >
+                    <p>Tail twitches: <select id="tail_twitches" name="tail_twitches">
+                        <option  value = "{{ squirrel_query.tail_twitches }}">--{{ squirrel_query.tail_twitches }}--</option >
+                        <option  value = "False">False</option >
+                        <option  value = "True">True</option >
+                    </select></p >
+                    <p>Approaches: <select id="approaches" name="approaches">
+                        <option  value = "{{ squirrel_query.approaches }}">--{{ squirrel_query.approaches }}--</option >
+                        <option  value = "False">False</option >
+                        <option  value = "True">True</option >
+                    </select></p >
+                    <p>Indifferent: <select id="indifferent" name="indifferent">
+                        <option  value = "{{ squirrel_query.indifferent }}">--{{ squirrel_query.indifferent }}--</option >
+                        <option  value = "False">False</option >
+                        <option  value = "True">True</option >
+                    </select></p >
+                    <p>Runs From: <select id="runs_from" name="runs_from">
+                        <option  value = "{{ squirrel_query.runs_from }}">--{{ squirrel_query.runs_from }}--</option >
+                        <option  value = "False">False</option >
+                        <option  value = "True">True</option >
+                    </select></p >
                     <input type="submit" class="btn btn-success" value = 'SUBMIT'>
                 </form>
             </div>

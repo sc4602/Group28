@@ -1,5 +1,4 @@
 from django.core.management.base import BaseCommand
-import sqlite3
 import pandas as pd
 import datetime
 from sqlalchemy import create_engine, NVARCHAR, Float, Boolean, Date, Text
