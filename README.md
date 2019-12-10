@@ -58,13 +58,6 @@ $ python manage.py import_squirrel_data /path/to/file.csv
 ##### Note: Data in db.sqlite3
 Joffrey Hosencratz would like to start keeping track of all the known squirrels and plans to start with Central Park. So the data in db.sqlite3 is now [the 2018 Central Park Squirrel Census data](https://data.cityofnewyork.us/api/views/vfnx-vebw/rows.csv).
 
-Models
------------------
-By run the following to construct the models from database automatically:
-```
-$ python manage.py inspectdb
-```
-
 Views
 -----------------
 ### Map
